@@ -1,17 +1,24 @@
 <%= nested_form_for @foo, :html=>{:multipart => true } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <fieldset>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
 
-  <%= f.fields_for :foo_images do |fi| %>
-    <% if fi.object.new_record? %>
-        <%= fi.file_field :image %>
-    <% else %>
-        <%= image_tag fi.object.image.url %>
-        <%= fi.link_to_remove "Remove" %>
-    <% end %>
-  <% end %>
-  <%= f.link_to_add "Add", :foo_images %>
+    <div>
+      <%= f.label :foo_images %>
+      <%= f.fields_for :foo_images do |fi| %>
+        <% if fi.object.new_record? %>
+            <%= fi.file_field :image %>
+        <% else %>
+            <%= image_tag fi.object.image.url %>
+            <%= fi.link_to_remove "Remove" %>
+        <% end %>
+      <% end %>
+      <%= f.link_to_add "Add", :foo_images %>
+    </div>
 
-  <%= f.submit %>
+    <%= f.submit %>
+  </fieldset>
 <% end %>
 

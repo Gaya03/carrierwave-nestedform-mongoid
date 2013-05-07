@@ -1,5 +1,15 @@
-<%= @foo.title %>
-<% @foo.foo_images.each do |i| %>
-    <%= image_tag i.image.url %>
-<% end %>
-<%= link_to "Update", upload_path %>
+<table class="table">
+  <thead><tr><th><%= @foo.title %></th></tr></thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <% @foo.foo_images.each do |i| %>
+          <a href="<%= i.image.url %>"><%= image_tag i.image.thumb.url %></a>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+
+  <tfoot><tr><th><%= link_to "Update", upload_path, :class => "btn btn-primary" %></th></tr></tfoot>
+</table>
