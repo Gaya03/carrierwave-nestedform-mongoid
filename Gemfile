@@ -14,6 +14,13 @@ end
 
 gem 'jquery-rails'
 
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+
+# Mongoid
+gem "mongoid"
+
 # File upload
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
